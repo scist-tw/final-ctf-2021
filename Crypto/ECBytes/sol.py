@@ -9,7 +9,7 @@ def split(s):
 alpha = open("alpha" , "r").read().strip()
 alpha = split(alpha)
 
-dic = dict(zip(alpha , printable[:62] + "{_}"))
+dic = dict(zip(alpha , printable))
 
 out = open("output" , "r").read().strip()
 out = split(out)
