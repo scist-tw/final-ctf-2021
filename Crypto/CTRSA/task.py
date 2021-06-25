@@ -15,7 +15,7 @@ def change_type(i):
     if type(i) == str:
         return int(i.encode("hex") , 16)
     elif type(i) in (int , long):
-        return hex(long(i))[2:-1].decode("hex")
+        return (["0" , ""][len(hex(long(i))) % 2] + hex(long(i))[2:-1]).decode("hex")
 
 def slice(flag):
     leng = len(flag) // 2
@@ -71,9 +71,7 @@ if __name__ == "__main__":
     f1 , f2 = slice(flag)
     c = pow(change_type(f1) , e , n)
     
-    blow = encrypt(f2 , key=f1)
-
-    #print(p , q)
+    c2 = xor(encrypt(f2) , encrypt(f1))
 
     with open("output" , "w") as f:
         f.write("n = {}\n".format(n))
@@ -81,5 +79,5 @@ if __name__ == "__main__":
         f.write("c = {}\n".format(c))
         f.write("x = {}\n".format(change_type(x)))
         f.write("iv = '{}'\n".format(iv.encode("hex")))
-        f.write("c2 = '{}'".format(blow.encode("hex")))        
+        f.write("c2 = '{}'\n".format(c2.encode("hex")))        
 
