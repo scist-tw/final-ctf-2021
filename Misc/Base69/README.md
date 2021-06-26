@@ -7,4 +7,5 @@ Oh here's a Base69 , maybe I can use this to charging shell.
 
 It's not like Base64 or Base32 , maybe you can try other Bases' Serial Alogrithm.
 
-## author : MuMu
+## Author : MuMu
+
