@@ -57,7 +57,6 @@ def miller_robin(n , k=20):
 def gen(bits):
     while 1:
         tmp = urandom(bits // 8)
-        res = change_type(encrypt(tmp))
         if miller_robin(change_type(tmp)):
             return change_type(tmp)
 
