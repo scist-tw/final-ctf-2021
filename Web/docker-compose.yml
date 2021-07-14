@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+
+    network-tools:
+        build: Network-Tools/src
+        restart: always
+        ports:
+            - 10001:80
+        volumes:
+            - ./Network-Tools/flag:/flag:ro
+
+    read-later:
+        build: Read-Later/src
+        restart: always
+        ports:
+            - 10002:80
+        env_file: Read-Later/.env
+
+    render-html:
+        build: Render-HTML/src
+        restart: always
+        ports:
+            - 10003:80
+        volumes:
+            - ./Render-HTML/flag:/flag:ro

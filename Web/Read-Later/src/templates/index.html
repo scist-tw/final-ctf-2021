@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private DNS Server</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        .container {
+            height: 100%;
+            margin: 3%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="row g-3 align-items-center mb-3" method="POST" action="/add">
+            <div class="col-5">
+                <input type="text" class="form-control" placeholder="g.co" name="link">
+            </div>
+            <div class="col-4">
+                <input type="text" class="form-control" placeholder="Google" name="name">
+            </div>
+            <div class="col-3">
+                <button type="submit" class="btn btn-outline-primary">Save</button>
+            </div>
+        </form>
+        <ul>
+            {% for (link, name) in links %}
+            <li>
+                <a href="{{ link }}">{{ name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
