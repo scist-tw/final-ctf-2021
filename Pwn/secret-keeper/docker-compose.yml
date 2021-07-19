@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  xinetd:
+    image: nella17/xinetd
+    volumes:
+      - ./home:/home/secret-keeper:ro
+      - ./flag:/flag:ro
+      - ./xinetd:/etc/xinetd.d/secret-keeper:ro
+    ports:
+      - ${LIP:-0.0.0.0}:10102:8888

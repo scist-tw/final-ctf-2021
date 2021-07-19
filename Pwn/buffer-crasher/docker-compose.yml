@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  xinetd:
+    image: nella17/xinetd
+    volumes:
+      - ./home:/home/buffer-crasher:ro
+      - ./flag:/flag:ro
+      - ./xinetd:/etc/xinetd.d/buffer-crasher:ro
+    ports:
+      - ${LIP:-0.0.0.0}:10101:8888
