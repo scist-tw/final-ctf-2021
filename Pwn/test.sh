@@ -2,6 +2,6 @@
 for i in */exploit*
 do
   cd "$(dirname $i)"
-  ./$(basename $i)
+  ./$(basename $i) NOCHECKSEC
   cd ..
 done
