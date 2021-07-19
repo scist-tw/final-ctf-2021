@@ -11,16 +11,19 @@ int main(){
     char name[0x30], buf[0x100]; 
     
     printf("Hi, What's your name?\n");
+    printf("> ");
     scanf("%s", name);
 
     printf("Hi! ");
     printf(name);
+    printf("\n");
 
-    printf("Give me your secret! I'll save it for you.");
+    printf("Give me your secret! I'll save it for you.\n");
+    printf("> ");
     scanf("%s", buf);
-    printf("Saved!");
+    printf("Saved!\n");
 
-    printf("See you next time!");
+    printf("See you next time!\n");
 
     return 0;
 }
