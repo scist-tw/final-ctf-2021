@@ -17,7 +17,7 @@ int main(){
     printf(name);
 
     printf("Give me your secret! I'll save it for you.");
-    printf("%s", buf);
+    scanf("%s", buf);
     printf("Saved!");
 
     printf("See you next time!");

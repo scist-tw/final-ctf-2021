@@ -1,4 +1,4 @@
-n=secret_keeper
+n=secret-keeper
 s=$n.c
 d=home/$n
 a=
