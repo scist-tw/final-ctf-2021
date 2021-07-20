@@ -1,3 +1,3 @@
 #!/bin/bash
 git pull
-LIP=`hostname -i` ./setup.sh
+LIP=`hostname -i` ./run.sh up --build -d
