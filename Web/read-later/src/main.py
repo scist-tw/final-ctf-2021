@@ -59,6 +59,8 @@ def add():
     link = request.form.get('link', '')
     name = request.form.get('name', '')
     if link and name and user != link:
+        if not link.startswith('http://') and not link.startswith('https://'):
+            link = 'http://' + link
         cursor = db().cursor()
         cursor.execute("INSERT INTO links VALUES (?, ?, ?)", (user, link, name))
         db().commit()
