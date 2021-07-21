@@ -1,5 +1,5 @@
 #!/bin/bash
-export HOST=${HOST:-34.81.183.1}
+export HOST=${HOST:-chall.ctf.scist.org}
 for d in ./*/test.sh
 do
   cd "$(dirname $d)"
