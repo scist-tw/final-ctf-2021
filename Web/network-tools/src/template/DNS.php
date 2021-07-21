@@ -25,7 +25,7 @@ $type = $_POST['type'] ?? '';
         </select>
     </div>
     <div class="col-auto">
-        <input type="text" class="form-control" placeholder="g.co" name="name" value="<?= $name ?>">
+        <input type="text" class="form-control" placeholder="g.co" name="name" value="<?= htmlentities($name) ?>">
     </div>
     <div class="col-auto">
         <button type="submit" class="btn btn-outline-primary">Query</button>
@@ -36,10 +36,6 @@ $type = $_POST['type'] ?? '';
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!$name) echo '<div class="alert alert-danger" role="alert">Missing name.</div>';
     if (!$type) echo '<div class="alert alert-danger" role="alert">Missing type.</div>';
-    if ($name && $type) {
-        echo '<pre>';
-        system("dig ${type} ".escapeshellarg($name));
-        echo '</pre>';
-    }
+    if ($name && $type) run("dig ${type} ".escapeshellarg($name));
 }
 ?>

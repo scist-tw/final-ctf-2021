@@ -7,7 +7,7 @@ $target = $_POST['target'] ?? '';
         Target:
     </div>
     <div class="col-auto">
-        <input type="text" class="form-control" placeholder="g.co" name="target" value="<?= $target ?>">
+        <input type="text" class="form-control" placeholder="g.co" name="target" value="<?= htmlentities($target) ?>">
     </div>
     <div class="col-auto">
         <button type="submit" class="btn btn-outline-primary">MTR</button>
@@ -17,10 +17,6 @@ $target = $_POST['target'] ?? '';
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!$target) echo '<div class="alert alert-danger" role="alert">Missing target.</div>';
-    if ($target) {
-        echo '<pre>';
-        system("mtr -G1 -c1 -wb ".escapeshellarg($target));
-        echo '</pre>';
-    }
+    if ($target) run("mtr -G1 -c1 -wb ".escapeshellarg($target));
 }
 ?>

