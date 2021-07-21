@@ -8,6 +8,7 @@ $nav = [
     'Whois',
 ];
 $page = $_GET['page'] ?? 'Home';
+if (strpos($page, '..') !== false) die("Isn't LFI?");
 ?>
 
 <!DOCTYPE html>
